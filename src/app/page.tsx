@@ -1,13 +1,12 @@
 import Link from "next/link";
 
 export default function Home() {
-  const plantacheckDemoUrl = "";
+  const plantacheckDemoUrl = "https://plantacheck.com.br";
   const hasPlantacheckDemo = Boolean(plantacheckDemoUrl);
 
   return (
     <main style={styles.page}>
       <div style={styles.container}>
-        {/* Header */}
         <header style={styles.header}>
           <div style={styles.avatar} aria-hidden />
           <div style={styles.headerText}>
@@ -26,7 +25,6 @@ export default function Home() {
           </div>
         </header>
 
-        {/* CTA */}
         <section style={styles.ctaRow}>
           <a
             style={styles.primaryBtn}
@@ -52,7 +50,6 @@ export default function Home() {
           </a>
         </section>
 
-        {/* Sobre */}
         <section style={styles.section}>
           <h2 style={styles.h2}>Sobre</h2>
           <p style={styles.p}>
@@ -68,30 +65,35 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Projeto principal */}
         <section style={styles.section}>
           <div style={styles.featuredWrap}>
             <div style={styles.featuredIntro}>
               <div style={styles.featuredTop}>
                 <span style={styles.featuredLabel}>Projeto principal</span>
-                <span style={styles.featuredStatus}>Em evolução</span>
+                <span style={styles.featuredStatus}>Online</span>
               </div>
 
               <h2 style={styles.featuredTitle}>PlantaCheck</h2>
 
               <p style={styles.featuredSubtitle}>
-                Plataforma web para controle inteligente de cuidados com plantas,
+                Aplicação web para controle inteligente de cuidados com plantas,
                 com foco em organização doméstica, eventos de rega e sol,
-                status calculado automaticamente e experiência mobile-first.
+                dashboard com priorização visual e experiência mobile-first.
               </p>
 
               <p style={styles.p}>
-                O PlantaCheck é meu principal projeto autoral. Foi pensado como
-                um produto real, com visão SaaS, regras de negócio próprias,
-                arquitetura evolutiva e foco em usabilidade. A aplicação já
-                contempla fluxo de login, dashboard com priorização visual,
-                ações em lote, cadastro rápido e estrutura preparada para
-                evolução como PWA.
+                O PlantaCheck é meu principal projeto autoral, desenvolvido como
+                um produto real desde a concepção até o deploy. A solução foi
+                pensada com visão de evolução contínua, regras de negócio
+                próprias, persistência de dados, autenticação, fluxo de uso
+                simples e estrutura preparada para uso como PWA.
+              </p>
+
+              <p style={styles.p}>
+                Entre as funcionalidades já implementadas estão login, cadastro
+                rápido de plantas, controle de frequência de rega e sol,
+                dashboard com status calculado automaticamente, ações em lote e
+                base preparada para expansão futura do produto.
               </p>
 
               <div style={styles.stackWrap}>
@@ -110,6 +112,15 @@ export default function Home() {
               <div style={styles.featuredButtons}>
                 <a
                   style={styles.primaryBtn}
+                  href="https://plantacheck.com.br"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Abrir demo
+                </a>
+
+                <a
+                  style={styles.secondaryBtn}
                   href="https://github.com/giovane-geromini/plantacheck"
                   target="_blank"
                   rel="noreferrer"
@@ -117,17 +128,15 @@ export default function Home() {
                   Ver repositório
                 </a>
 
-                {hasPlantacheckDemo ? (
+                {hasPlantacheckDemo && (
                   <a
                     style={styles.secondaryBtn}
                     href={plantacheckDemoUrl}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Abrir demo
+                    Site oficial
                   </a>
-                ) : (
-                  <span style={styles.disabledBtn}>Demo em breve</span>
                 )}
               </div>
             </div>
@@ -169,7 +178,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projetos */}
         <section style={styles.section}>
           <h2 style={styles.h2}>Outros projetos</h2>
 
@@ -215,7 +223,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Roadmap */}
         <section id="roadmap" style={styles.section}>
           <h2 style={styles.h2}>Roadmap</h2>
           <ul style={styles.ul}>
@@ -224,19 +231,14 @@ export default function Home() {
             <li style={styles.li}>
               ✅ Destaque principal do PlantaCheck com screenshots
             </li>
-            <li style={styles.li}>
-              🔜 Publicar demo pública do PlantaCheck
-            </li>
+            <li style={styles.li}>✅ Demo pública do PlantaCheck online</li>
             <li style={styles.li}>
               🔜 Adicionar seção técnica com arquitetura e decisões do projeto
             </li>
-            <li style={styles.li}>
-              🔜 Criar página dedicada para projetos
-            </li>
+            <li style={styles.li}>🔜 Criar página dedicada para projetos</li>
           </ul>
         </section>
 
-        {/* Footer */}
         <footer style={styles.footer}>
           <span>© {new Date().getFullYear()} Giovane Geromini</span>
           <span style={styles.dot}>•</span>
@@ -337,19 +339,6 @@ const styles: Record<string, React.CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  disabledBtn: {
-    padding: "10px 14px",
-    borderRadius: 12,
-    background: "rgba(255,255,255,0.03)",
-    color: "rgba(229,231,235,0.65)",
-    fontWeight: 600,
-    textDecoration: "none",
-    border: "1px solid rgba(255,255,255,0.08)",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "not-allowed",
   },
   section: {
     marginTop: 28,
