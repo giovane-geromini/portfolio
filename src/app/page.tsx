@@ -1,20 +1,68 @@
 import Link from "next/link";
 
 export default function Home() {
-  const plantacheckDemoUrl = "https://plantacheck.com.br";
-  const hasPlantacheckDemo = Boolean(plantacheckDemoUrl);
-
   return (
     <main style={styles.page}>
       <div style={styles.container}>
         <header style={styles.header}>
-          <div style={styles.avatar} aria-hidden />
+          <div style={styles.avatar} aria-hidden>
+            <svg
+              viewBox="0 0 64 64"
+              width="38"
+              height="38"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="8"
+                y="36"
+                width="8"
+                height="16"
+                rx="2"
+                fill="rgba(59,130,246,0.95)"
+              />
+              <rect
+                x="20"
+                y="26"
+                width="8"
+                height="26"
+                rx="2"
+                fill="rgba(96,165,250,0.95)"
+              />
+              <rect
+                x="32"
+                y="18"
+                width="8"
+                height="34"
+                rx="2"
+                fill="rgba(34,197,94,0.95)"
+              />
+              <rect
+                x="44"
+                y="10"
+                width="8"
+                height="42"
+                rx="2"
+                fill="rgba(74,222,128,0.95)"
+              />
+              <path
+                d="M14 18C20 12 27 11 33 15C37 17.7 40.7 18 45.5 16.5C48.1 15.7 50.6 14.4 53 13"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <circle cx="53" cy="13" r="3.5" fill="white" />
+            </svg>
+          </div>
+
           <div style={styles.headerText}>
             <h1 style={styles.h1}>Giovane Geromini</h1>
             <p style={styles.subtitle}>
-              Analista de Logística e Dados | BI e Automação | SQL |
-              Desenvolvimento de Soluções | Pós em Engenharia de Dados
+              Analista de Logística orientado a Dados | SQL • Power BI •
+              Automação | Desenvolvimento de Produtos Web (Next.js,
+              TypeScript, Supabase) | Pós em Engenharia de Dados
             </p>
+
             <div style={styles.badges}>
               <span style={styles.badge}>Next.js</span>
               <span style={styles.badge}>TypeScript</span>
@@ -73,7 +121,9 @@ export default function Home() {
                 <span style={styles.featuredStatus}>Online</span>
               </div>
 
-              <h2 style={styles.featuredTitle}>PlantaCheck</h2>
+              <h2 style={styles.featuredTitle}>
+                PlantaCheck — produto funcional em desenvolvimento contínuo
+              </h2>
 
               <p style={styles.featuredSubtitle}>
                 Aplicação web para controle inteligente de cuidados com plantas,
@@ -116,7 +166,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Abrir demo
+                  Abrir app
                 </a>
 
                 <a
@@ -125,19 +175,8 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Ver repositório
+                  Código no GitHub
                 </a>
-
-                {hasPlantacheckDemo && (
-                  <a
-                    style={styles.secondaryBtn}
-                    href={plantacheckDemoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Site oficial
-                  </a>
-                )}
               </div>
             </div>
 
@@ -175,6 +214,90 @@ export default function Home() {
                 </figcaption>
               </figure>
             </div>
+          </div>
+        </section>
+
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Visão técnica do PlantaCheck</h2>
+
+          <div style={styles.techGrid}>
+            <article style={styles.techCard}>
+              <h3 style={styles.h3}>Visão do projeto</h3>
+              <p style={styles.p}>
+                Aplicação web autoral voltada ao controle inteligente de
+                cuidados com plantas, com foco em organização doméstica,
+                registro de eventos e experiência mobile-first.
+              </p>
+            </article>
+
+            <article style={styles.techCard}>
+              <h3 style={styles.h3}>Status atual</h3>
+              <ul style={styles.featureList}>
+                <li style={styles.featureItem}>Autenticação implementada</li>
+                <li style={styles.featureItem}>Cadastro rápido de plantas</li>
+                <li style={styles.featureItem}>
+                  Dashboard com priorização visual
+                </li>
+                <li style={styles.featureItem}>Controle de rega e sol</li>
+                <li style={styles.featureItem}>Ações em lote</li>
+                <li style={styles.featureItem}>
+                  Deploy em produção com domínio próprio
+                </li>
+              </ul>
+            </article>
+
+            <article style={styles.techCard}>
+              <h3 style={styles.h3}>Arquitetura e dados</h3>
+              <p style={styles.p}>
+                O modelo de dados do PlantaCheck é centrado em eventos, como
+                rega, exposição ao sol e ajustes de configuração, permitindo
+                cálculo de status e priorização automática no dashboard. A
+                persistência é feita em PostgreSQL via Supabase, com regras de
+                negócio concentradas na aplicação.
+              </p>
+            </article>
+
+            <article style={styles.techCard}>
+              <h3 style={styles.h3}>Evolução planejada</h3>
+              <ul style={styles.featureList}>
+                <li style={styles.featureItem}>
+                  Refinamentos visuais e de UX
+                </li>
+                <li style={styles.featureItem}>
+                  Ajustes de regras de negócio
+                </li>
+                <li style={styles.featureItem}>
+                  Melhorias de fluxo e consistência
+                </li>
+                <li style={styles.featureItem}>
+                  Expansão gradual das funcionalidades
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Dados & Automação</h2>
+
+          <div style={styles.techGrid}>
+            <article style={styles.techCard}>
+              <h3 style={styles.h3}>Dados aplicados ao negócio</h3>
+              <p style={styles.p}>
+                Atuação com análise operacional, leitura de indicadores e apoio
+                à tomada de decisão com foco em confiabilidade, produtividade e
+                clareza no fluxo.
+              </p>
+            </article>
+
+            <article style={styles.techCard}>
+              <h3 style={styles.h3}>Ferramentas e prática</h3>
+              <p style={styles.p}>
+                Experiência com SQL, Power BI e automação aplicada a rotinas de
+                operação, além de desenvolvimento de aplicações web com lógica
+                de negócio e persistência de dados.
+              </p>
+            </article>
           </div>
         </section>
 
@@ -233,9 +356,14 @@ export default function Home() {
             </li>
             <li style={styles.li}>✅ Demo pública do PlantaCheck online</li>
             <li style={styles.li}>
-              🔜 Adicionar seção técnica com arquitetura e decisões do projeto
+              ✅ Seção técnica resumida do PlantaCheck
             </li>
-            <li style={styles.li}>🔜 Criar página dedicada para projetos</li>
+            <li style={styles.li}>
+              🔜 Criar página dedicada para projetos
+            </li>
+            <li style={styles.li}>
+              🔜 Evoluir apresentação técnica dos cases
+            </li>
           </ul>
         </section>
 
@@ -279,9 +407,12 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 16,
     border: "1px solid rgba(255,255,255,0.18)",
     background:
-      "linear-gradient(135deg, rgba(59,130,246,0.9), rgba(34,197,94,0.85))",
+      "linear-gradient(135deg, rgba(17,24,39,0.95), rgba(30,41,59,0.92))",
     boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
     flex: "0 0 auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerText: {
     flex: 1,
@@ -456,6 +587,27 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 13,
     lineHeight: 1.5,
     color: "#cbd5e1",
+  },
+  techGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: 12,
+    marginTop: 10,
+  },
+  techCard: {
+    padding: 16,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.10)",
+    background: "rgba(255,255,255,0.04)",
+  },
+  featureList: {
+    margin: 0,
+    paddingLeft: 18,
+    lineHeight: 1.8,
+    opacity: 0.95,
+  },
+  featureItem: {
+    margin: 0,
   },
   grid: {
     display: "grid",
