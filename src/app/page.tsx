@@ -177,6 +177,10 @@ export default function Home() {
                 >
                   Código no GitHub
                 </a>
+
+                <Link style={styles.secondaryBtn} href="/plantacheck">
+                  Ver case técnico
+                </Link>
               </div>
             </div>
 
@@ -359,7 +363,7 @@ export default function Home() {
               ✅ Seção técnica resumida do PlantaCheck
             </li>
             <li style={styles.li}>
-              🔜 Criar página dedicada para projetos
+              ✅ Página dedicada do case técnico do PlantaCheck
             </li>
             <li style={styles.li}>
               🔜 Evoluir apresentação técnica dos cases
