@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PlantaCheckPhone from "../components/PlantaCheckPhone";
 import PortfolioLightIntro from "../components/PortfolioLightIntro";
+import ProfessionalProfileCard from "../components/ProfessionalProfileCard";
 import { plantCheckHomepageSlides } from "../data/plantaCheckGallery";
 
 const strengths = [
@@ -44,13 +45,13 @@ export default function Home() {
               GG
             </span>
             <span>
-              <strong>Giovane Geromini</strong>
+              <strong>Portfólio</strong>
               <small>Dados, produtos e automação</small>
             </span>
           </Link>
 
           <div className="portfolio-nav-links">
-            <a href="#sobre">Sobre</a>
+            <Link href="/sobre">Sobre mim</Link>
             <a href="#plantacheck">PlantaCheck</a>
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
@@ -59,7 +60,7 @@ export default function Home() {
 
         <header className="portfolio-hero">
           <div className="portfolio-hero-copy">
-            <span className="eyebrow">Analista de Logística • Engenharia de Dados</span>
+            <span className="eyebrow">Logística • Dados • Desenvolvimento de produtos</span>
 
             <h1>
               Transformo problemas operacionais em
@@ -67,15 +68,17 @@ export default function Home() {
             </h1>
 
             <p className="portfolio-hero-lead">
-              Atuo entre logística, análise de dados e desenvolvimento
-              full-stack. Crio indicadores, automações e aplicações web com
-              regras de negócio claras, experiência simples e foco em uso real.
+              Minha trajetória foi construída em operações, logística,
+              atendimento, indicadores e melhoria de processos. Hoje, conecto
+              essa experiência ao desenvolvimento full-stack para criar
+              automações, análises e aplicações com regras de negócio claras,
+              experiência simples e utilidade real.
             </p>
 
             <div className="portfolio-actions">
               <a
                 className="button button--primary"
-                href="mailto:giovane.geromini@hotmail.com"
+                href="mailto:giovane.geromini_dev@outlook.com"
               >
                 Falar comigo
               </a>
@@ -111,58 +114,29 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="portfolio-profile-card">
-            <div className="portfolio-profile-visual" aria-hidden="true">
-              <div className="portfolio-profile-bars">
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-              <svg viewBox="0 0 220 120" role="presentation">
-                <path d="M14 96 C52 73, 74 88, 106 54 S166 50, 206 17" />
-                <circle cx="206" cy="17" r="6" />
-              </svg>
-            </div>
-
-            <span className="portfolio-profile-status">
-              Disponível para oportunidades em tecnologia
-            </span>
-
-            <dl className="portfolio-profile-facts">
-              <div>
-                <dt>Foco</dt>
-                <dd>Back-end, dados e produtos</dd>
-              </div>
-              <div>
-                <dt>Experiência</dt>
-                <dd>Operações, logística e indicadores</dd>
-              </div>
-              <div>
-                <dt>Abordagem</dt>
-                <dd>Problema real → solução utilizável</dd>
-              </div>
-            </dl>
-          </aside>
+          <ProfessionalProfileCard priority />
         </header>
 
         <section id="sobre" className="portfolio-section">
           <div className="section-heading">
-            <span className="eyebrow">Sobre</span>
+            <span className="eyebrow">Como trabalho</span>
             <h2>Experiência operacional com mentalidade de produto.</h2>
             <p>
-              Minha trajetória em logística me ensinou a trabalhar com prazos,
+              A vivência em logística me ensinou a trabalhar com prazos,
               exceções, dados incompletos e decisões que precisam funcionar no
-              mundo real. Hoje, aplico essa base à Engenharia de Dados e ao
-              desenvolvimento de produtos digitais.
+              mundo real. Essa base orienta a forma como estruturo dados,
+              automações e aplicações digitais.
             </p>
+            <Link className="text-link about-section-link" href="/sobre">
+              Saiba mais sobre minha experiência, formação e competências →
+            </Link>
           </div>
 
           <div className="strength-grid">
-            {strengths.map((strength) => (
+            {strengths.map((strength, index) => (
               <article className="glass-card" key={strength.title}>
                 <span className="glass-card-index" aria-hidden="true">
-                  0{strengths.indexOf(strength) + 1}
+                  0{index + 1}
                 </span>
                 <h3>{strength.title}</h3>
                 <p>{strength.text}</p>
@@ -201,6 +175,20 @@ export default function Home() {
                 {plantCheckHighlights.map((highlight) => (
                   <span key={highlight}>{highlight}</span>
                 ))}
+              </div>
+
+              <div className="plantacheck-explore-note">
+                <span className="plantacheck-explore-icon" aria-hidden="true">
+                  🌿
+                </span>
+                <div>
+                  <strong>Case completo e navegável</strong>
+                  <p>
+                    A página dedicada apresenta a evolução do produto, decisões
+                    técnicas, arquitetura e uma galeria interativa com as
+                    principais telas dentro de um celular virtual.
+                  </p>
+                </div>
               </div>
 
               <div className="portfolio-actions">
@@ -314,27 +302,10 @@ export default function Home() {
         <section id="projetos" className="portfolio-section">
           <div className="section-heading">
             <span className="eyebrow">Outros projetos</span>
-            <h2>Pequenas soluções com aplicação prática.</h2>
+            <h2>Produtos e experiências em evolução.</h2>
           </div>
 
-          <div className="project-grid">
-            <article className="project-card">
-              <span className="status-pill">Mini app</span>
-              <h3>SLA Calculator</h3>
-              <p>
-                Calculadora de SLA criada para apoiar análises rápidas de prazo
-                e produtividade no contexto logístico.
-              </p>
-              <a
-                className="text-link"
-                href="https://github.com/giovane-geromini/sla-calculator"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Ver repositório →
-              </a>
-            </article>
-
+          <div className="project-grid project-grid--compact">
             <article className="project-card">
               <span className="status-pill">Produto próprio</span>
               <h3>Jornada Gamer</h3>
@@ -367,7 +338,7 @@ export default function Home() {
 
           <a
             className="button button--primary"
-            href="mailto:giovane.geromini@hotmail.com"
+            href="mailto:giovane.geromini_dev@outlook.com"
           >
             Enviar e-mail
           </a>
