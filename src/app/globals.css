@@ -1196,7 +1196,7 @@ img {
   gap: clamp(34px, 7vw, 96px);
   align-items: center;
   margin: 0 auto;
-  padding: 42px 0;
+  padding: 32px 0 88px;
 }
 
 .portfolio-intro-copy {
@@ -1278,9 +1278,9 @@ img {
 
 .portfolio-intro-phone-shell {
   position: relative;
-  height: min(720px, calc(100vh - 92px));
+  height: min(660px, calc(100dvh - 150px));
   aspect-ratio: 390 / 844;
-  min-height: 560px;
+  min-height: 500px;
   transform: translateY(0) scale(1);
   transition:
     transform 1250ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -1458,14 +1458,14 @@ img {
 }
 
 .portfolio-intro-notification {
-  right: 16px;
-  bottom: 136px;
-  left: 16px;
+  right: 15px;
+  bottom: 132px;
+  left: 15px;
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr);
-  gap: 11px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
   align-items: start;
-  padding: 13px;
+  padding: 14px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 18px;
   background: rgba(9, 14, 25, 0.7);
@@ -1478,8 +1478,8 @@ img {
 
 .portfolio-intro-notification-icon {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   place-items: center;
   border: 1px solid rgba(96, 165, 250, 0.28);
   border-radius: 12px;
@@ -1504,13 +1504,13 @@ img {
 
 .portfolio-intro-notification strong {
   color: #ffffff;
-  font-size: 11px;
+  font-size: 11.5px;
   line-height: 1.35;
 }
 
 .portfolio-intro-notification small {
   color: #c6d2e3;
-  font-size: 9px;
+  font-size: 8.6px;
   line-height: 1.45;
 }
 
@@ -1612,8 +1612,8 @@ img {
 
 .portfolio-intro-skip {
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  right: clamp(18px, 3vw, 34px);
+  bottom: 20px;
   padding: 10px 14px;
   border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 999px;
@@ -1866,7 +1866,7 @@ img {
     grid-template-columns: 1fr;
     gap: 18px;
     justify-items: center;
-    padding: 24px 0 76px;
+    padding: 24px 0 82px;
   }
 
   .portfolio-intro-copy {
@@ -1892,8 +1892,8 @@ img {
   }
 
   .portfolio-intro-phone-shell {
-    height: min(62vh, 610px);
-    min-height: 440px;
+    height: min(60dvh, 590px);
+    min-height: 430px;
   }
 
   .portfolio-intro-lock-copy {
@@ -2288,11 +2288,37 @@ img {
   inset: 0;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(4, 9, 20, 0.08), rgba(4, 9, 20, 0.88)),
-    radial-gradient(circle at 78% 22%, rgba(74, 222, 128, 0.13), transparent 34%),
-    radial-gradient(circle at 18% 28%, rgba(59, 130, 246, 0.16), transparent 34%),
-    linear-gradient(145deg, #081226, #040913 58%, #071b18);
+    linear-gradient(180deg, rgba(4, 9, 20, 0.03), rgba(4, 9, 20, 0.9)),
+    radial-gradient(circle at 80% 18%, rgba(74, 222, 128, 0.12), transparent 34%),
+    radial-gradient(circle at 16% 26%, rgba(59, 130, 246, 0.16), transparent 35%),
+    radial-gradient(circle at 52% 68%, rgba(15, 118, 110, 0.08), transparent 28%),
+    linear-gradient(145deg, #081226, #040913 56%, #071b18);
   z-index: 0;
+}
+
+.portfolio-intro-screen-background::before {
+  position: absolute;
+  inset: 14% -12% 10% 8%;
+  background:
+    linear-gradient(115deg, transparent 0 18%, rgba(96, 165, 250, 0.085) 18.2% 18.6%, transparent 18.8% 42%, rgba(74, 222, 128, 0.075) 42.2% 42.55%, transparent 42.8% 100%),
+    linear-gradient(24deg, transparent 0 34%, rgba(96, 165, 250, 0.06) 34.2% 34.55%, transparent 34.8% 67%, rgba(74, 222, 128, 0.055) 67.2% 67.5%, transparent 67.8% 100%);
+  content: "";
+  opacity: 0.72;
+  transform: rotate(-2deg);
+}
+
+.portfolio-intro-screen-background::after {
+  position: absolute;
+  right: 8%;
+  bottom: 18%;
+  width: 42%;
+  height: 23%;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle, rgba(96, 165, 250, 0.16) 0 1.2px, transparent 1.6px) 0 0 / 15px 15px;
+  content: "";
+  mask-image: linear-gradient(135deg, transparent 4%, black 30%, transparent 92%);
+  opacity: 0.42;
 }
 
 .portfolio-intro-screen-grid {
@@ -2444,14 +2470,14 @@ img {
 
 .portfolio-intro-identity-card {
   position: absolute;
-  top: 224px;
-  right: 17px;
-  left: 17px;
+  top: 218px;
+  right: 15px;
+  left: 15px;
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
-  gap: 13px;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 15px;
   align-items: center;
-  padding: 13px;
+  padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 21px;
   background:
@@ -2466,7 +2492,7 @@ img {
 
 .portfolio-intro-avatar {
   position: relative;
-  width: 92px;
+  width: 104px;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
@@ -2492,32 +2518,24 @@ img {
   gap: 3px;
 }
 
-.portfolio-intro-identity-copy > span {
-  color: #86efac;
-  font-size: 8px;
-  font-weight: 850;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .portfolio-intro-identity-copy strong {
   color: #ffffff;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.08;
   letter-spacing: -0.025em;
 }
 
 .portfolio-intro-identity-copy small {
   color: #c8d5e7;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1.35;
 }
 
 .portfolio-intro-identity-copy em {
-  margin-top: 5px;
-  color: #7890ad;
-  font-size: 8px;
+  margin-top: 7px;
+  color: #8aa0bc;
+  font-size: 8.5px;
   font-style: normal;
   line-height: 1.35;
 }
@@ -2541,25 +2559,51 @@ img {
     transform 700ms ease;
 }
 
-@media (max-height: 760px) and (min-width: 721px) {
+@media (max-height: 820px) and (min-width: 721px) {
+  .portfolio-intro-stage {
+    padding-top: 24px;
+    padding-bottom: 82px;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: min(610px, calc(100dvh - 132px));
+    min-height: 480px;
+  }
+
   .portfolio-intro-weather {
-    top: 43px;
+    top: 41px;
   }
 
   .portfolio-intro-lock-badge {
-    top: 49px;
+    top: 47px;
   }
 
   .portfolio-intro-lock-copy {
-    top: 101px;
+    top: 96px;
   }
 
   .portfolio-intro-identity-card {
-    top: 203px;
+    top: 190px;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .portfolio-intro-avatar {
+    width: 92px;
   }
 
   .portfolio-intro-notification {
-    bottom: 126px;
+    bottom: 122px;
+    padding: 12px;
+  }
+
+  .portfolio-intro-slider {
+    bottom: 50px;
+  }
+
+  .portfolio-intro-home-indicator {
+    bottom: 12px;
   }
 }
 
@@ -2579,7 +2623,14 @@ img {
   }
 
   .portfolio-intro-identity-card {
-    top: 203px;
+    top: 198px;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .portfolio-intro-avatar {
+    width: 88px;
   }
 }
 
@@ -2634,17 +2685,17 @@ img {
   }
 
   .portfolio-intro-identity-card {
-    top: 158px;
+    top: 154px;
     right: 11px;
     left: 11px;
-    grid-template-columns: 68px minmax(0, 1fr);
+    grid-template-columns: 70px minmax(0, 1fr);
     gap: 10px;
     padding: 10px;
     border-radius: 17px;
   }
 
   .portfolio-intro-avatar {
-    width: 68px;
+    width: 70px;
   }
 
   .portfolio-intro-identity-copy strong {
@@ -2661,5 +2712,732 @@ img {
 
   .portfolio-intro-notification {
     bottom: 109px;
+  }
+}
+
+
+/* v1.1.3 — lockscreen refinada, notificação do portfólio e responsividade de notebooks */
+/* v1.1.4 — lockscreen responsiva sem sobreposição
+   O miolo do celular passa a usar container queries e grid proporcional.
+   Isso evita colisões entre clima, badge, identidade, notificação e slider
+   quando o aparelho virtual é reduzido em notebooks ou janelas menores. */
+
+.portfolio-intro-screen {
+  container-type: inline-size;
+}
+
+.portfolio-intro-lock-layout {
+  position: absolute;
+  inset: 11.5cqw 4cqw 10.5cqw;
+  display: grid;
+  grid-template-rows: auto auto auto minmax(1cqw, 1fr) auto auto;
+  gap: 3.2cqw;
+  min-height: 0;
+  z-index: 3;
+}
+
+.portfolio-intro-top-widgets {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2.4cqw;
+  align-items: start;
+  min-width: 0;
+}
+
+/* Clima e badge deixam de ser absolutos: agora dividem a mesma linha. */
+
+.portfolio-intro-weather {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  grid-template-columns: 10.5cqw minmax(0, 1fr);
+  gap: 2.4cqw;
+  align-items: center;
+  padding: 2.6cqw 2.8cqw;
+  border-radius: 4.3cqw;
+}
+
+.portfolio-intro-weather-icon {
+  width: 10.5cqw;
+  height: 10.5cqw;
+  border-radius: 3.1cqw;
+  font-size: 6.4cqw;
+}
+
+.portfolio-intro-weather strong {
+  font-size: 5.1cqw;
+}
+
+.portfolio-intro-weather span:not(.portfolio-intro-weather-icon) {
+  font-size: 2.45cqw;
+}
+
+.portfolio-intro-weather small {
+  font-size: 2.05cqw;
+}
+
+.portfolio-intro-lock-badge {
+  position: relative;
+  top: auto;
+  right: auto;
+  align-self: start;
+  gap: 1.5cqw;
+  padding: 2.6cqw 2.8cqw;
+  border-radius: 999px;
+  font-size: 2.1cqw;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.portfolio-intro-lock-badge span {
+  font-size: 3.4cqw;
+}
+
+/* Hora/data passam a participar do fluxo vertical. */
+
+.portfolio-intro-lock-copy {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  display: grid;
+  justify-items: center;
+  min-width: 0;
+  padding-top: 0.3cqw;
+}
+
+.portfolio-intro-lock-copy strong {
+  min-width: 0;
+  font-size: 15.5cqw;
+  line-height: 0.88;
+}
+
+.portfolio-intro-lock-copy span {
+  margin-top: 1.8cqw;
+  font-size: 2.75cqw;
+}
+
+/* Card pessoal também fica proporcional ao tamanho real do aparelho. */
+
+.portfolio-intro-identity-card {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  grid-template-columns: 25cqw minmax(0, 1fr);
+  gap: 3.6cqw;
+  min-width: 0;
+  padding: 3.5cqw;
+  border-radius: 5.6cqw;
+}
+
+.portfolio-intro-avatar {
+  width: 25cqw;
+}
+
+.portfolio-intro-identity-copy {
+  gap: 0.9cqw;
+}
+
+.portfolio-intro-identity-copy strong {
+  font-size: 5.15cqw;
+}
+
+.portfolio-intro-identity-copy small {
+  font-size: 2.65cqw;
+}
+
+.portfolio-intro-identity-copy em {
+  margin-top: 1.5cqw;
+  font-size: 2.15cqw;
+}
+
+/* A área flexível absorve diferenças de altura, impedindo colisões. */
+
+.portfolio-intro-lock-spacer {
+  min-height: 0;
+}
+
+/* Notificação deixa de usar bottom fixo. */
+
+.portfolio-intro-notification {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  grid-template-columns: 11cqw minmax(0, 1fr);
+  gap: 3cqw;
+  min-width: 0;
+  padding: 3.3cqw;
+  border-radius: 4.8cqw;
+}
+
+.portfolio-intro-notification-icon {
+  width: 11cqw;
+  height: 11cqw;
+  border-radius: 3.3cqw;
+  font-size: 2.9cqw;
+}
+
+.portfolio-intro-notification div:last-child {
+  gap: 0.7cqw;
+}
+
+.portfolio-intro-notification span {
+  font-size: 2.25cqw;
+}
+
+.portfolio-intro-notification strong {
+  font-size: 2.95cqw;
+  line-height: 1.28;
+}
+
+.portfolio-intro-notification small {
+  font-size: 2.15cqw;
+  line-height: 1.35;
+}
+
+/* Slider no fluxo da grid; dimensões proporcionais. */
+
+.portfolio-intro-slider {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  width: 100%;
+  height: 13.5cqw;
+  min-height: 0;
+}
+
+.portfolio-intro-slider-handle {
+  top: 1.25cqw;
+  left: 1.25cqw;
+  width: 11cqw;
+  height: 11cqw;
+  border-width: 1px;
+  box-shadow:
+    0 2.2cqw 5.5cqw rgba(0, 0, 0, 0.35),
+    0 0 0 1.55cqw rgba(96, 165, 250, 0.07);
+}
+
+.portfolio-intro-slider-handle span {
+  font-size: 7.4cqw;
+}
+
+.portfolio-intro-slider-label {
+  padding-left: 10cqw;
+  font-size: 2.6cqw;
+}
+
+/* Home indicator continua absoluto, mas proporcional ao aparelho. */
+
+.portfolio-intro-home-indicator {
+  bottom: 3.3cqw;
+  width: 22cqw;
+  height: 1.05cqw;
+}
+
+/* Durante o desbloqueio, anima-se o bloco completo sem perder a grid. */
+
+.portfolio-intro.is-unlocking .portfolio-intro-top-widgets,
+.portfolio-intro.is-unlocking .portfolio-intro-lock-copy {
+  opacity: 0;
+  transform: translateY(-4cqw);
+  transition:
+    opacity 450ms ease,
+    transform 700ms ease;
+}
+
+.portfolio-intro.is-unlocking .portfolio-intro-identity-card {
+  opacity: 0;
+  transform: translateY(-5cqw) scale(0.97);
+}
+
+.portfolio-intro.is-unlocking .portfolio-intro-notification {
+  opacity: 0;
+  transform: translateY(-5cqw) scale(0.97);
+}
+
+/* Notebooks de pouca altura:
+   reduzimos o telefone como um todo — não os elementos isoladamente. */
+
+@media (max-height: 820px) and (min-width: 721px) {
+  .portfolio-intro-stage {
+    padding-top: 18px;
+    padding-bottom: 78px;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: min(575px, calc(100dvh - 126px));
+    min-height: 450px;
+  }
+
+  .portfolio-intro-copy h1 {
+    font-size: clamp(2.65rem, 5.55vw, 5.35rem);
+  }
+
+  .portfolio-intro-copy p {
+    margin-top: 19px;
+  }
+
+  .portfolio-intro-hint {
+    margin-top: 21px;
+  }
+}
+
+@media (max-height: 680px) and (min-width: 721px) {
+  .portfolio-intro-stage {
+    gap: clamp(24px, 5vw, 64px);
+    padding-top: 14px;
+    padding-bottom: 70px;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: min(515px, calc(100dvh - 112px));
+    min-height: 410px;
+  }
+
+  .portfolio-intro-copy h1 {
+    font-size: clamp(2.35rem, 5.15vw, 4.75rem);
+  }
+
+  .portfolio-intro-copy p {
+    max-width: 560px;
+    margin-top: 16px;
+    font-size: 0.98rem;
+  }
+
+  .portfolio-intro-hint {
+    margin-top: 17px;
+  }
+}
+
+/* Em telas mais estreitas, o celular continua proporcional.
+   Os cards internos já escalam via cqw e não precisam de coordenadas próprias. */
+
+@media (max-width: 720px) {
+  .portfolio-intro-lock-layout {
+    inset: 11.5cqw 4cqw 10.5cqw;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: min(58dvh, 565px);
+    min-height: 420px;
+  }
+
+  .portfolio-intro-weather,
+  .portfolio-intro-lock-badge,
+  .portfolio-intro-lock-copy,
+  .portfolio-intro-identity-card,
+  .portfolio-intro-notification,
+  .portfolio-intro-slider {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  .portfolio-intro-notification small {
+    display: block;
+  }
+}
+
+@media (max-width: 430px) {
+  .portfolio-intro-phone-shell {
+    height: min(56dvh, 520px);
+    min-height: 395px;
+  }
+
+  .portfolio-intro-lock-layout {
+    inset: 11.5cqw 3.7cqw 10.5cqw;
+    gap: 2.7cqw;
+  }
+
+  .portfolio-intro-identity-copy em {
+    display: block;
+  }
+
+  .portfolio-intro-notification small {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   v1.1.5 — legibilidade da lockscreen
+   Mantém a estrutura responsiva da v1.1.4, mas impede que tipografia e
+   elementos informativos fiquem pequenos demais quando o celular reduz.
+   ========================================================================== */
+
+/* Status superior do aparelho */
+.portfolio-intro-statusbar {
+  font-size: clamp(9px, 2.55cqw, 11px);
+}
+
+/* Linha superior: clima + estado bloqueado */
+.portfolio-intro-weather {
+  grid-template-columns: clamp(30px, 10.5cqw, 40px) minmax(0, 1fr);
+  gap: clamp(7px, 2.4cqw, 10px);
+  padding:
+    clamp(7px, 2.6cqw, 10px)
+    clamp(8px, 2.8cqw, 11px);
+}
+
+.portfolio-intro-weather-icon {
+  width: clamp(30px, 10.5cqw, 40px);
+  height: clamp(30px, 10.5cqw, 40px);
+  border-radius: clamp(9px, 3.1cqw, 12px);
+  font-size: clamp(18px, 6.4cqw, 24px);
+}
+
+.portfolio-intro-weather strong {
+  font-size: clamp(13px, 5.1cqw, 18px);
+}
+
+.portfolio-intro-weather span:not(.portfolio-intro-weather-icon) {
+  font-size: clamp(8.5px, 2.45cqw, 10px);
+  line-height: 1.18;
+}
+
+.portfolio-intro-weather small {
+  font-size: clamp(7.5px, 2.05cqw, 9px);
+  line-height: 1.18;
+}
+
+.portfolio-intro-lock-badge {
+  gap: clamp(4px, 1.5cqw, 6px);
+  padding:
+    clamp(7px, 2.6cqw, 10px)
+    clamp(8px, 2.8cqw, 11px);
+  font-size: clamp(8px, 2.1cqw, 9.5px);
+  font-weight: 800;
+}
+
+.portfolio-intro-lock-badge span {
+  font-size: clamp(10px, 3.4cqw, 13px);
+}
+
+/* Relógio continua visualmente dominante */
+.portfolio-intro-lock-copy strong {
+  font-size: clamp(42px, 15.5cqw, 58px);
+}
+
+.portfolio-intro-lock-copy span {
+  margin-top: clamp(5px, 1.8cqw, 8px);
+  font-size: clamp(9px, 2.75cqw, 11px);
+  font-weight: 750;
+}
+
+/* Card pessoal */
+.portfolio-intro-identity-card {
+  grid-template-columns:
+    clamp(58px, 25cqw, 78px)
+    minmax(0, 1fr);
+  gap: clamp(9px, 3.6cqw, 14px);
+  padding: clamp(10px, 3.5cqw, 14px);
+}
+
+.portfolio-intro-avatar {
+  width: clamp(58px, 25cqw, 78px);
+}
+
+.portfolio-intro-identity-copy {
+  gap: clamp(3px, 0.9cqw, 5px);
+}
+
+.portfolio-intro-identity-copy strong {
+  font-size: clamp(13px, 5.15cqw, 18px);
+  line-height: 1.02;
+}
+
+.portfolio-intro-identity-copy small {
+  font-size: clamp(8.5px, 2.65cqw, 10.5px);
+  line-height: 1.25;
+}
+
+.portfolio-intro-identity-copy em {
+  margin-top: clamp(4px, 1.5cqw, 7px);
+  font-size: clamp(7.5px, 2.15cqw, 9px);
+  line-height: 1.3;
+}
+
+/* Notificação do portfólio */
+.portfolio-intro-notification {
+  grid-template-columns:
+    clamp(31px, 11cqw, 42px)
+    minmax(0, 1fr);
+  gap: clamp(8px, 3cqw, 11px);
+  padding: clamp(9px, 3.3cqw, 13px);
+}
+
+.portfolio-intro-notification-icon {
+  width: clamp(31px, 11cqw, 42px);
+  height: clamp(31px, 11cqw, 42px);
+  border-radius: clamp(9px, 3.3cqw, 13px);
+  font-size: clamp(8px, 2.9cqw, 11px);
+}
+
+.portfolio-intro-notification div:last-child {
+  gap: clamp(2px, 0.7cqw, 4px);
+}
+
+.portfolio-intro-notification span {
+  font-size: clamp(8px, 2.25cqw, 9.5px);
+  line-height: 1.15;
+}
+
+.portfolio-intro-notification strong {
+  font-size: clamp(10.5px, 2.95cqw, 12.5px);
+  line-height: 1.24;
+}
+
+.portfolio-intro-notification small {
+  font-size: clamp(8px, 2.15cqw, 9.5px);
+  line-height: 1.3;
+}
+
+/* Slider */
+.portfolio-intro-slider {
+  height: clamp(38px, 13.5cqw, 50px);
+}
+
+.portfolio-intro-slider-handle {
+  top: clamp(4px, 1.25cqw, 5px);
+  left: clamp(4px, 1.25cqw, 5px);
+  width: clamp(31px, 11cqw, 42px);
+  height: clamp(31px, 11cqw, 42px);
+}
+
+.portfolio-intro-slider-handle span {
+  font-size: clamp(21px, 7.4cqw, 28px);
+}
+
+.portfolio-intro-slider-label {
+  padding-left: clamp(31px, 10cqw, 42px);
+  font-size: clamp(8.5px, 2.6cqw, 10.5px);
+  font-weight: 800;
+}
+
+/* O miolo pode usar ligeiramente mais largura interna sem perder respiro. */
+.portfolio-intro-lock-layout {
+  inset:
+    clamp(38px, 11.5cqw, 46px)
+    clamp(10px, 3.5cqw, 14px)
+    clamp(34px, 10.5cqw, 42px);
+  gap: clamp(8px, 3cqw, 12px);
+}
+
+/* Em notebooks mais baixos, damos mais espaço ao telefone.
+   O layout interno continua protegido pela grid da v1.1.4. */
+@media (max-height: 820px) and (min-width: 721px) {
+  .portfolio-intro-stage {
+    padding-top: 12px;
+    padding-bottom: 62px;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: min(610px, calc(100dvh - 88px));
+    min-height: 470px;
+  }
+}
+
+@media (max-height: 680px) and (min-width: 721px) {
+  .portfolio-intro-stage {
+    padding-top: 8px;
+    padding-bottom: 54px;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: min(555px, calc(100dvh - 72px));
+    min-height: 445px;
+  }
+}
+
+/* Em telas muito estreitas preservamos leitura antes de tentar
+   comprimir ainda mais o conteúdo. */
+@media (max-width: 720px) {
+  .portfolio-intro-phone-shell {
+    height: min(62dvh, 590px);
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 430px) {
+  .portfolio-intro-phone-shell {
+    height: min(61dvh, 555px);
+    min-height: 430px;
+  }
+
+  .portfolio-intro-notification small {
+    font-size: 8px;
+  }
+
+  .portfolio-intro-identity-copy em {
+    font-size: 7.5px;
+  }
+}
+
+/* ==========================================================================
+   v1.1.7 — polimento do case PlantaCheck
+   - remove scrollbar nativa das categorias sem perder rolagem horizontal;
+   - organiza Observar / Decidir / Evoluir em três colunas no desktop;
+   - reduz o respiro vertical do case sem comprimir o conteúdo;
+   - melhora indicação de navegação horizontal e acabamento da galeria.
+   ========================================================================== */
+
+/* Categorias: continuam roláveis por mouse, trackpad e touch, mas sem a
+   scrollbar branca nativa que quebrava o acabamento visual. */
+.pc-category-tabs {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+}
+
+.pc-category-tabs::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.pc-category-tab {
+  scroll-snap-align: start;
+}
+
+/* O bloco Natureza + Tecnologia vem imediatamente após #produto.
+   Mantemos Problema/Solução em duas colunas e aplicamos três colunas apenas
+   ao trio Observar / Decidir / Evoluir. */
+.case-page #produto + .portfolio-section .problem-solution-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Ritmo vertical do case: cerca de 16% mais compacto que o espaçamento-base. */
+.case-page .portfolio-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.case-page #experiencia {
+  padding-top: 58px;
+}
+
+.case-page .case-closing {
+  margin-top: 68px;
+}
+
+/* Acabamento suave na área interativa. */
+.case-page .case-phone-panel {
+  background:
+    radial-gradient(circle at 50% 8%, rgba(59, 130, 246, 0.095), transparent 34%),
+    radial-gradient(circle at 88% 78%, rgba(34, 197, 94, 0.055), transparent 30%),
+    rgba(11, 18, 32, 0.92);
+}
+
+.pc-phone-counter {
+  color: #9cb0ca;
+  letter-spacing: 0.015em;
+}
+
+/* Em telas intermediárias, o trio permanece equilibrado. */
+@media (max-width: 980px) {
+  .case-page #produto + .portfolio-section .problem-solution-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-page .portfolio-section {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-page #produto + .portfolio-section .problem-solution-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-page .portfolio-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .case-page #experiencia {
+    padding-top: 48px;
+  }
+
+  .case-page .case-closing {
+    margin-top: 56px;
+  }
+}
+
+/* ==========================================================================
+   v1.1.8 — PlantaCheck case layout polish
+   - garante Observar / Decidir / Evoluir em uma única linha no desktop;
+   - usa a própria quantidade de cards para não afetar Problema / Solução;
+   - reduz o espaço excessivo antes da Experiência interativa;
+   - preserva uma coluna no mobile e mantém o restante do case intacto.
+   ========================================================================== */
+
+/* O trio Natureza + Tecnologia possui três cards. O :has() torna o alvo
+   independente da posição exata da seção no JSX e evita alterar grids com
+   apenas dois itens, como Problema / Solução. */
+.case-page .problem-solution-grid:has(> :nth-child(3)) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.case-page .problem-solution-grid:has(> :nth-child(3)) > * {
+  min-width: 0;
+  height: 100%;
+}
+
+/* O espaço anterior à galeria vinha da soma do padding inferior da seção
+   anterior com o padding superior de #experiencia. Compactamos apenas essa
+   passagem, sem mexer no ritmo das demais seções do case. */
+.case-page .portfolio-section:has(.problem-solution-grid > :nth-child(3)) {
+  padding-bottom: 30px;
+}
+
+.case-page #experiencia {
+  padding-top: 34px;
+}
+
+/* Mantém um respiro visual adequado entre o cabeçalho da experiência e o
+   painel do celular, sem recriar o vazio grande que existia antes. */
+.case-page #experiencia .section-heading {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 980px) {
+  .case-page .problem-solution-grid:has(> :nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-page .portfolio-section:has(.problem-solution-grid > :nth-child(3)) {
+    padding-bottom: 26px;
+  }
+
+  .case-page #experiencia {
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-page .problem-solution-grid:has(> :nth-child(3)) {
+    grid-template-columns: 1fr;
+  }
+
+  .case-page .portfolio-section:has(.problem-solution-grid > :nth-child(3)) {
+    padding-bottom: 30px;
+  }
+
+  .case-page #experiencia {
+    padding-top: 34px;
+  }
+
+  .case-page #experiencia .section-heading {
+    margin-bottom: 22px;
   }
 }

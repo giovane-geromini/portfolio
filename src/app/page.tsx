@@ -1,8 +1,7 @@
 import Link from "next/link";
-import PlantaCheckPhone from "../components/PlantaCheckPhone";
 import PortfolioLightIntro from "../components/PortfolioLightIntro";
 import ProfessionalProfileCard from "../components/ProfessionalProfileCard";
-import { plantCheckHomepageSlides } from "../data/plantaCheckGallery";
+import PlantaCheckHomeFeature from "../components/PlantaCheckHomeFeature";
 
 const strengths = [
   {
@@ -17,17 +16,6 @@ const strengths = [
     title: "Visão ponta a ponta",
     text: "Da identificação do problema ao desenho da regra de negócio, interface, persistência, deploy e melhoria contínua.",
   },
-];
-
-const plantCheckHighlights = [
-  "Guia do Dia e Radar Inteligente",
-  "Rega, adubação, luz e check-ups",
-  "Saúde das plantas de 0 a 100",
-  "Clima aplicado às recomendações",
-  "Calendário e Central de Lembretes",
-  "Galeria evolutiva e histórico",
-  "Enciclopédia e diagnóstico visual",
-  "Jogos, conquistas e Soletra Verde",
 ];
 
 export default function Home() {
@@ -60,7 +48,9 @@ export default function Home() {
 
         <header className="portfolio-hero">
           <div className="portfolio-hero-copy">
-            <span className="eyebrow">Logística • Dados • Desenvolvimento de produtos</span>
+            <span className="eyebrow">
+              Logística • Dados • Desenvolvimento de produtos
+            </span>
 
             <h1>
               Transformo problemas operacionais em
@@ -145,83 +135,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="plantacheck" className="portfolio-section">
-          <div className="plantacheck-feature">
-            <div className="plantacheck-feature-copy">
-              <div className="project-status-row">
-                <span className="status-pill status-pill--green">
-                  Projeto principal
-                </span>
-                <span className="status-pill">Beta funcional</span>
-                <span className="status-pill">V5.20.11.5.1</span>
-              </div>
-
-              <span className="plantacheck-wordmark">PlantaCheck</span>
-              <h2>Uma rotina de plantas transformada em produto digital.</h2>
-
-              <p className="section-lead">
-                PWA mobile-first que organiza plantas, interpreta histórico,
-                clima e prioridades, e ajuda o usuário a decidir o que realmente
-                precisa de atenção.
-              </p>
-
-              <p>
-                O projeto evoluiu de um controle de regas para um ecossistema
-                completo com casas compartilhadas, saúde, calendário,
-                notificações, galeria evolutiva, aprendizado e gamificação.
-              </p>
-
-              <div className="feature-chip-grid">
-                {plantCheckHighlights.map((highlight) => (
-                  <span key={highlight}>{highlight}</span>
-                ))}
-              </div>
-
-              <div className="plantacheck-explore-note">
-                <span className="plantacheck-explore-icon" aria-hidden="true">
-                  🌿
-                </span>
-                <div>
-                  <strong>Case completo e navegável</strong>
-                  <p>
-                    A página dedicada apresenta a evolução do produto, decisões
-                    técnicas, arquitetura e uma galeria interativa com as
-                    principais telas dentro de um celular virtual.
-                  </p>
-                </div>
-              </div>
-
-              <div className="portfolio-actions">
-                <a
-                  className="button button--green"
-                  href="https://plantacheck.com.br"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Abrir aplicação
-                </a>
-
-                <Link className="button button--secondary" href="/plantacheck">
-                  Explorar case completo
-                </Link>
-              </div>
-
-              <p className="private-repository-note">
-                <span aria-hidden="true">🔒</span>
-                Repositório privado. O portfólio apresenta o produto sem expor
-                sua implementação integral.
-              </p>
-            </div>
-
-            <div className="plantacheck-feature-phone">
-              <PlantaCheckPhone
-                slides={plantCheckHomepageSlides}
-                compact
-                title="Principais telas do PlantaCheck"
-              />
-            </div>
-          </div>
-        </section>
+        <PlantaCheckHomeFeature />
 
         <section className="portfolio-section">
           <div className="section-heading">

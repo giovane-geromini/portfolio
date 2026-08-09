@@ -316,91 +316,97 @@ export default function PortfolioLightIntro() {
                 <span>● 5G ︽</span>
               </div>
 
-              <div className="portfolio-intro-weather">
-                <span
-                  className="portfolio-intro-weather-icon"
-                  aria-hidden="true"
-                >
-                  {weather.icon}
-                </span>
-                <div>
-                  <strong>{temperatureLabel}</strong>
-                  <span>{weather.condition}</span>
-                  <small>
-                    {weather.city}
-                    {weather.source === "visitor" ? " · aproximado" : ""}
-                  </small>
+              <div className="portfolio-intro-lock-layout">
+                <div className="portfolio-intro-top-widgets">
+                  <div className="portfolio-intro-weather">
+                    <span
+                      className="portfolio-intro-weather-icon"
+                      aria-hidden="true"
+                    >
+                      {weather.icon}
+                    </span>
+                    <div>
+                      <strong>{temperatureLabel}</strong>
+                      <span>{weather.condition}</span>
+                      <small>
+                        {weather.city}
+                        {weather.source === "visitor" ? " · aproximado" : ""}
+                      </small>
+                    </div>
+                  </div>
+
+                  <div className="portfolio-intro-lock-badge">
+                    <span aria-hidden="true">⌁</span>
+                    Tela bloqueada
+                  </div>
                 </div>
-              </div>
 
-              <div className="portfolio-intro-lock-badge">
-                <span aria-hidden="true">⌁</span>
-                Tela bloqueada
-              </div>
+                <div className="portfolio-intro-lock-copy">
+                  <strong>{clock}</strong>
+                  <span>{dateLabel}</span>
+                </div>
 
-              <div className="portfolio-intro-lock-copy">
-                <strong>{clock}</strong>
-                <span>{dateLabel}</span>
-              </div>
+                <div className="portfolio-intro-identity-card">
+                  <div className="portfolio-intro-avatar">
+                    <img
+                      src={professionalProfile.image}
+                      alt=""
+                      draggable={false}
+                    />
+                  </div>
 
-              <div className="portfolio-intro-identity-card">
-                <div className="portfolio-intro-avatar">
-                  <img
-                    src={professionalProfile.image}
-                    alt=""
-                    draggable={false}
+                  <div className="portfolio-intro-identity-copy">
+                    <strong>{professionalProfile.name}</strong>
+                    <small>Dados • produtos • automação</small>
+                    <em>Deslize abaixo para abrir o portfólio</em>
+                  </div>
+                </div>
+
+                <div className="portfolio-intro-lock-spacer" aria-hidden="true" />
+
+                <div className="portfolio-intro-notification">
+                  <div className="portfolio-intro-notification-icon">GG</div>
+                  <div>
+                    <span>Portfólio profissional</span>
+                    <strong>Projetos, experiência e produtos digitais</strong>
+                    <small>
+                      Desbloqueie para explorar meus trabalhos, trajetória e cases
+                      em desenvolvimento.
+                    </small>
+                  </div>
+                </div>
+
+                <div ref={sliderRef} className="portfolio-intro-slider">
+                  <span
+                    className="portfolio-intro-slider-fill"
+                    style={{ width: `${54 + dragDistance}px` }}
+                    aria-hidden="true"
                   />
+
+                  <button
+                    type="button"
+                    className="portfolio-intro-slider-handle"
+                    style={{ transform: `translateX(${dragDistance}px)` }}
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    onPointerCancel={handlePointerUp}
+                    onClick={unlockPortfolio}
+                    disabled={state === "checking" || state === "unlocking"}
+                    aria-label="Deslizar para desbloquear e abrir o portfólio"
+                  >
+                    <span aria-hidden="true">›</span>
+                  </button>
+
+                  <span
+                    className="portfolio-intro-slider-label"
+                    style={{
+                      opacity: Math.max(0.18, 1 - unlockProgress * 1.15),
+                    }}
+                  >
+                    deslize para entrar
+                  </span>
                 </div>
-
-                <div className="portfolio-intro-identity-copy">
-                  <span>Porta de entrada</span>
-                  <strong>{professionalProfile.name}</strong>
-                  <small>Dados • produtos • automação</small>
-                  <em>Deslize abaixo para abrir o portfólio</em>
-                </div>
-              </div>
-
-              <div className="portfolio-intro-notification">
-                <div className="portfolio-intro-notification-icon">PC</div>
-                <div>
-                  <span>Projeto em destaque</span>
-                  <strong>PlantaCheck — produto digital em produção</strong>
-                  <small>
-                    Case técnico, arquitetura e galeria interativa disponíveis.
-                  </small>
-                </div>
-              </div>
-
-              <div ref={sliderRef} className="portfolio-intro-slider">
-                <span
-                  className="portfolio-intro-slider-fill"
-                  style={{ width: `${54 + dragDistance}px` }}
-                  aria-hidden="true"
-                />
-
-                <button
-                  type="button"
-                  className="portfolio-intro-slider-handle"
-                  style={{ transform: `translateX(${dragDistance}px)` }}
-                  onPointerDown={handlePointerDown}
-                  onPointerMove={handlePointerMove}
-                  onPointerUp={handlePointerUp}
-                  onPointerCancel={handlePointerUp}
-                  onClick={unlockPortfolio}
-                  disabled={state === "checking" || state === "unlocking"}
-                  aria-label="Deslizar para desbloquear e abrir o portfólio"
-                >
-                  <span aria-hidden="true">›</span>
-                </button>
-
-                <span
-                  className="portfolio-intro-slider-label"
-                  style={{
-                    opacity: Math.max(0.18, 1 - unlockProgress * 1.15),
-                  }}
-                >
-                  deslize para entrar
-                </span>
               </div>
 
               <div

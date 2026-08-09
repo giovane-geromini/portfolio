@@ -5,10 +5,10 @@ import {
   useMemo,
   useRef,
   useState,
+  type KeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import type {
-  PlantCheckCategory,
   PlantCheckScreenshot,
 } from "../data/plantaCheckGallery";
 
@@ -29,15 +29,17 @@ export default function PlantaCheckPhone({
   showThumbnails = false,
   title = "Demonstração interativa do PlantaCheck",
 }: PlantCheckPhoneProps) {
-  const [category, setCategory] = useState<string>(ALL_CATEGORIES);
+  const [category, setCategory] = useState(ALL_CATEGORIES);
   const [index, setIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+
   const pointerStartX = useRef<number | null>(null);
   const pointerStartY = useRef<number | null>(null);
 
-  const categories = useMemo(() => {
-    return Array.from(new Set(slides.map((slide) => slide.category)));
-  }, [slides]);
+  const categories = useMemo(
+    () => Array.from(new Set(slides.map((slide) => slide.category))),
+    [slides],
+  );
 
   const visibleSlides = useMemo(() => {
     if (category === ALL_CATEGORIES) {
@@ -60,7 +62,7 @@ export default function PlantaCheckPhone({
   }, [index, visibleSlides.length]);
 
   useEffect(() => {
-    if (!activeSlide || typeof window === "undefined") {
+    if (!activeSlide || visibleSlides.length <= 1 || typeof window === "undefined") {
       return;
     }
 
@@ -84,7 +86,7 @@ export default function PlantaCheckPhone({
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    const onEscape = (event: KeyboardEvent) => {
+    const onEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsExpanded(false);
       }
@@ -114,7 +116,7 @@ export default function PlantaCheckPhone({
     );
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
       goToPrevious();
@@ -131,17 +133,18 @@ export default function PlantaCheckPhone({
     }
   };
 
-  const handlePointerDown = (
-    event: ReactPointerEvent<HTMLButtonElement>,
-  ) => {
+  const handlePointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
     pointerStartX.current = event.clientX;
     pointerStartY.current = event.clientY;
     event.currentTarget.setPointerCapture(event.pointerId);
   };
 
-  const handlePointerUp = (
-    event: ReactPointerEvent<HTMLButtonElement>,
-  ) => {
+  const resetPointer = () => {
+    pointerStartX.current = null;
+    pointerStartY.current = null;
+  };
+
+  const handlePointerUp = (event: ReactPointerEvent<HTMLButtonElement>) => {
     if (pointerStartX.current === null || pointerStartY.current === null) {
       return;
     }
@@ -149,8 +152,7 @@ export default function PlantaCheckPhone({
     const distanceX = event.clientX - pointerStartX.current;
     const distanceY = event.clientY - pointerStartY.current;
 
-    pointerStartX.current = null;
-    pointerStartY.current = null;
+    resetPointer();
 
     if (Math.abs(distanceX) > 45 && Math.abs(distanceX) > Math.abs(distanceY)) {
       if (distanceX > 0) {
@@ -174,13 +176,14 @@ export default function PlantaCheckPhone({
       aria-label={title}
     >
       {showCategories ? (
-        <div className="pc-category-tabs" aria-label="Categorias de telas">
+        <div className="pc-category-tabs" aria-label="Categorias das telas">
           <button
             type="button"
             className={`pc-category-tab${
               category === ALL_CATEGORIES ? " is-active" : ""
             }`}
             onClick={() => setSelectedCategory(ALL_CATEGORIES)}
+            aria-pressed={category === ALL_CATEGORIES}
           >
             Todas
           </button>
@@ -191,6 +194,7 @@ export default function PlantaCheckPhone({
               type="button"
               className={`pc-category-tab${category === item ? " is-active" : ""}`}
               onClick={() => setSelectedCategory(item)}
+              aria-pressed={category === item}
             >
               {item}
             </button>
@@ -222,6 +226,7 @@ export default function PlantaCheckPhone({
             className="pc-phone-screen"
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
+            onPointerCancel={resetPointer}
             aria-label={`Ampliar ${activeSlide.title}`}
           >
             <img
@@ -251,9 +256,7 @@ export default function PlantaCheckPhone({
           <h3>{activeSlide.title}</h3>
         </div>
 
-        <span className="pc-phone-counter">
-          {index + 1} / {visibleSlides.length}
-        </span>
+        <span className="pc-phone-counter">Tela {index + 1}</span>
       </div>
 
       <div className="pc-phone-progress" aria-hidden="true">
@@ -333,9 +336,7 @@ export default function PlantaCheckPhone({
 
             <div className="pc-lightbox-caption">
               <strong>{activeSlide.title}</strong>
-              <span>
-                {index + 1} de {visibleSlides.length}
-              </span>
+              <span>Tela {index + 1}</span>
             </div>
           </div>
         </div>

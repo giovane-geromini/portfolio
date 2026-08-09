@@ -138,7 +138,7 @@ export const professionalProfile = {
       company: "Shopee",
       role: "Analista de Logística Júnior | Last Mile e Logística Reversa",
       period: "set. 2023 — ago. 2025",
-      location: "São Paulo, SP · Presencial",
+      location: "São Carlos, SP · Presencial",
       summary:
         "Atuação operacional e analítica na logística reversa do Last Mile Hub, acompanhando pacotes em insucesso de entrega e os fluxos de retorno ao seller.",
       highlights: [
