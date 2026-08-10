@@ -3441,3 +3441,291 @@ img {
     margin-bottom: 22px;
   }
 }
+
+/* ==========================================================================
+   v1.2.1 — HOTFIX MOBILE REAL DEVICE
+   - corrige diferença entre DevTools e navegadores Android reais;
+   - impede text autosizing dentro do celular virtual;
+   - adapta a abertura à altura dinâmica realmente disponível;
+   - remove pisos mínimos que comprimiam o conteúdo interno;
+   - preserva desktop e notebooks.
+   ========================================================================== */
+
+/*
+ * Navegadores móveis podem aumentar automaticamente textos de blocos
+ * estreitos. Como esta área simula uma interface de celular, todo o conteúdo
+ * precisa respeitar exatamente a escala definida pelo layout.
+ */
+.portfolio-intro-screen {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* --------------------------------------------------------------------------
+   Telefones em portrait com viewport vertical reduzido pela interface
+   do navegador.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 430px) and (max-height: 760px) {
+  .portfolio-intro {
+    height: 100dvh;
+    min-height: 100svh;
+  }
+
+  .portfolio-intro-stage {
+    width: min(calc(100% - 20px), 1120px);
+    height: 100dvh;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 10px;
+    align-content: stretch;
+    align-items: start;
+    justify-items: center;
+    padding:
+      max(10px, env(safe-area-inset-top))
+      0
+      calc(56px + env(safe-area-inset-bottom));
+  }
+
+  .portfolio-intro-copy {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .portfolio-intro-kicker {
+    margin-bottom: 9px;
+    font-size: 9px;
+  }
+
+  .portfolio-intro-copy h1 {
+    font-size: clamp(2rem, 10.7vw, 2.65rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .portfolio-intro-copy p {
+    max-width: 340px;
+    margin-top: 10px;
+    font-size: clamp(0.82rem, 3.6vw, 0.9rem);
+    line-height: 1.48;
+  }
+
+  .portfolio-intro-phone-shell {
+    width: auto;
+    height: clamp(330px, 51dvh, 420px);
+    min-height: 0;
+    max-height: 420px;
+    aspect-ratio: 390 / 844;
+    align-self: center;
+  }
+
+  .portfolio-intro-phone {
+    padding: 9px 7px 13px;
+    border-radius: 34px;
+  }
+
+  .portfolio-intro-screen {
+    border-radius: 27px;
+  }
+
+  .portfolio-intro-skip {
+    right: 50%;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    transform: translateX(50%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Quando o celular virtual fica realmente estreito, removemos os mínimos
+   em pixels introduzidos pela etapa de legibilidade. Tudo volta a escalar
+   proporcionalmente ao próprio aparelho.
+   -------------------------------------------------------------------------- */
+
+@container (max-width: 220px) {
+  .portfolio-intro-lock-layout {
+    inset: 11.5cqw 3.7cqw 10.5cqw;
+    gap: 2.7cqw;
+  }
+
+  .portfolio-intro-statusbar {
+    font-size: 2.55cqw;
+  }
+
+  .portfolio-intro-top-widgets {
+    gap: 2.2cqw;
+  }
+
+  .portfolio-intro-weather {
+    grid-template-columns: 10.5cqw minmax(0, 1fr);
+    gap: 2.2cqw;
+    padding: 2.5cqw 2.6cqw;
+    border-radius: 4.2cqw;
+  }
+
+  .portfolio-intro-weather-icon {
+    width: 10.5cqw;
+    height: 10.5cqw;
+    border-radius: 3cqw;
+    font-size: 6.2cqw;
+  }
+
+  .portfolio-intro-weather strong {
+    font-size: 5cqw;
+  }
+
+  .portfolio-intro-weather span:not(.portfolio-intro-weather-icon) {
+    font-size: 2.35cqw;
+    line-height: 1.18;
+  }
+
+  .portfolio-intro-weather small {
+    font-size: 2cqw;
+    line-height: 1.18;
+  }
+
+  .portfolio-intro-lock-badge {
+    gap: 1.3cqw;
+    padding: 2.4cqw 2.5cqw;
+    font-size: 2cqw;
+  }
+
+  .portfolio-intro-lock-badge span {
+    font-size: 3.2cqw;
+  }
+
+  .portfolio-intro-lock-copy {
+    padding-top: 0.2cqw;
+  }
+
+  .portfolio-intro-lock-copy strong {
+    min-width: 0;
+    font-size: 15.2cqw;
+  }
+
+  .portfolio-intro-lock-copy span {
+    margin-top: 1.6cqw;
+    font-size: 2.65cqw;
+  }
+
+  .portfolio-intro-identity-card {
+    grid-template-columns: 23cqw minmax(0, 1fr);
+    gap: 3cqw;
+    padding: 3cqw;
+    border-radius: 5cqw;
+  }
+
+  .portfolio-intro-avatar {
+    width: 23cqw;
+  }
+
+  .portfolio-intro-identity-copy {
+    gap: 0.7cqw;
+  }
+
+  .portfolio-intro-identity-copy strong {
+    font-size: 4.7cqw;
+    line-height: 1.05;
+  }
+
+  .portfolio-intro-identity-copy small {
+    font-size: 2.5cqw;
+    line-height: 1.2;
+  }
+
+  .portfolio-intro-identity-copy em {
+    margin-top: 1.1cqw;
+    font-size: 2cqw;
+    line-height: 1.25;
+  }
+
+  .portfolio-intro-notification {
+    grid-template-columns: 10.5cqw minmax(0, 1fr);
+    gap: 2.6cqw;
+    padding: 2.9cqw;
+    border-radius: 4.5cqw;
+  }
+
+  .portfolio-intro-notification-icon {
+    width: 10.5cqw;
+    height: 10.5cqw;
+    border-radius: 3.1cqw;
+    font-size: 2.8cqw;
+  }
+
+  .portfolio-intro-notification div:last-child {
+    gap: 0.55cqw;
+  }
+
+  .portfolio-intro-notification span {
+    font-size: 2.1cqw;
+    line-height: 1.15;
+  }
+
+  .portfolio-intro-notification strong {
+    font-size: 2.8cqw;
+    line-height: 1.23;
+  }
+
+  .portfolio-intro-notification small {
+    display: block;
+    font-size: 1.95cqw;
+    line-height: 1.28;
+  }
+
+  .portfolio-intro-slider {
+    height: 13cqw;
+  }
+
+  .portfolio-intro-slider-handle {
+    top: 1.15cqw;
+    left: 1.15cqw;
+    width: 10.7cqw;
+    height: 10.7cqw;
+  }
+
+  .portfolio-intro-slider-handle span {
+    font-size: 7cqw;
+  }
+
+  .portfolio-intro-slider-label {
+    padding-left: 10cqw;
+    font-size: 2.45cqw;
+  }
+
+  .portfolio-intro-home-indicator {
+    bottom: 3cqw;
+    width: 22cqw;
+    height: 1cqw;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Segurança extra para aparelhos excepcionalmente baixos.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 430px) and (max-height: 620px) {
+  .portfolio-intro-stage {
+    gap: 7px;
+    padding-top: max(7px, env(safe-area-inset-top));
+  }
+
+  .portfolio-intro-kicker {
+    margin-bottom: 6px;
+  }
+
+  .portfolio-intro-copy h1 {
+    font-size: clamp(1.82rem, 9.8vw, 2.2rem);
+  }
+
+  .portfolio-intro-copy p {
+    margin-top: 7px;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .portfolio-intro-phone-shell {
+    height: clamp(300px, 49dvh, 345px);
+  }
+}
+
