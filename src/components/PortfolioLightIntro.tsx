@@ -416,6 +416,19 @@ export default function PortfolioLightIntro() {
             </div>
           </div>
         </div>
+
+        <button
+          type="button"
+          className="portfolio-intro-mobile-skip"
+          onClick={skipIntro}
+        >
+          Entrar diretamente
+        </button>
+
+        <div className="portfolio-intro-mobile-scroll-cue" aria-hidden="true">
+          <span>Role para conhecer o portfólio</span>
+          <strong>↓</strong>
+        </div>
       </div>
 
       <button

@@ -3729,3 +3729,289 @@ img {
   }
 }
 
+/* ==========================================================================
+   v1.2.2 — MOBILE PHONE-FIRST EXPERIENCE
+   - no mobile real, o celular virtual passa a ser o primeiro conteúdo;
+   - o aparelho usa quase toda a largura útil, sem ser reduzido para caber
+     junto do texto no mesmo viewport;
+   - a própria abertura passa a ter rolagem vertical;
+   - "Entrar diretamente" participa do fluxo e nunca fica sobre o aparelho;
+   - o texto conceitual vem abaixo, indicado por um cue de rolagem;
+   - desktop e notebooks permanecem com a composição lateral já aprovada.
+   ========================================================================== */
+
+.portfolio-intro-mobile-skip,
+.portfolio-intro-mobile-scroll-cue {
+  display: none;
+}
+
+/* A alteração estrutural entra somente em telas móveis. */
+@media (max-width: 720px) {
+  .portfolio-intro {
+    height: 100dvh;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .portfolio-intro::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .portfolio-intro-stage {
+    width: min(calc(100% - 20px), 430px);
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 0;
+    align-content: start;
+    align-items: start;
+    justify-items: center;
+    margin: 0 auto;
+    padding:
+      max(16px, env(safe-area-inset-top))
+      0
+      calc(44px + env(safe-area-inset-bottom));
+  }
+
+  /*
+   * No mobile o aparelho vem primeiro.
+   * Não usamos scale(): largura e aspect-ratio definem seu tamanho real,
+   * mantendo toda a tipografia interna legível.
+   */
+  .portfolio-intro-phone-shell {
+    order: 1;
+    width: min(90vw, 360px);
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 390 / 844;
+    align-self: auto;
+    margin: 0 auto;
+  }
+
+  .portfolio-intro-phone-shell::before {
+    inset: 7% -12% -4%;
+  }
+
+  .portfolio-intro-phone {
+    width: 100%;
+    height: 100%;
+  }
+
+  .portfolio-intro-screen {
+    width: 100%;
+    height: 100%;
+  }
+
+  /*
+   * Botão alternativo no fluxo mobile.
+   * O botão absoluto original continua existindo para desktop,
+   * mas fica oculto aqui para impedir qualquer sobreposição.
+   */
+  .portfolio-intro-mobile-skip {
+    order: 2;
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 11px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #aeb8c8;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 760;
+    backdrop-filter: blur(14px);
+    transition:
+      color 160ms ease,
+      border-color 160ms ease,
+      background 160ms ease,
+      transform 160ms ease;
+  }
+
+  .portfolio-intro-mobile-skip:hover,
+  .portfolio-intro-mobile-skip:focus-visible {
+    border-color: rgba(96, 165, 250, 0.28);
+    background: rgba(96, 165, 250, 0.09);
+    color: #ffffff;
+  }
+
+  .portfolio-intro-mobile-skip:active {
+    transform: scale(0.985);
+  }
+
+  .portfolio-intro-skip {
+    display: none;
+  }
+
+  .portfolio-intro-mobile-scroll-cue {
+    order: 3;
+    display: grid;
+    justify-items: center;
+    gap: 5px;
+    margin-top: 14px;
+    color: #738198;
+    font-size: 10px;
+    font-weight: 760;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  .portfolio-intro-mobile-scroll-cue strong {
+    color: #7faee8;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    animation: portfolio-mobile-scroll-cue 1500ms ease-in-out infinite;
+  }
+
+  @keyframes portfolio-mobile-scroll-cue {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(5px);
+    }
+  }
+
+  /*
+   * O bloco conceitual passa a ser a segunda "tela" da abertura.
+   * Ele fica em fluxo normal, portanto pode ser lido rolando a página.
+   */
+  .portfolio-intro-copy {
+    order: 4;
+    width: 100%;
+    max-width: 410px;
+    margin-top: 46px;
+    padding: 0 4px 34px;
+    text-align: center;
+  }
+
+  .portfolio-intro-kicker {
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+
+  .portfolio-intro-copy h1 {
+    max-width: 390px;
+    margin-inline: auto;
+    font-size: clamp(2.35rem, 11.5vw, 3.45rem);
+    line-height: 0.99;
+    letter-spacing: -0.058em;
+  }
+
+  .portfolio-intro-copy p {
+    max-width: 360px;
+    margin: 18px auto 0;
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .portfolio-intro-hint {
+    display: none;
+  }
+
+  /*
+   * O hotfix v1.2.1 tinha regras de viewport baixo que voltavam a encolher
+   * o aparelho. Estas declarações anulam apenas no mobile phone-first.
+   */
+  .portfolio-intro-stage,
+  .portfolio-intro-phone-shell {
+    max-height: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .portfolio-intro-stage {
+    width: min(calc(100% - 16px), 410px);
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+
+  .portfolio-intro-phone-shell {
+    width: min(90vw, 350px);
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .portfolio-intro-phone {
+    padding: 10px 8px 14px;
+    border-radius: 40px;
+  }
+
+  .portfolio-intro-screen {
+    border-radius: 31px;
+  }
+
+  .portfolio-intro-mobile-skip {
+    margin-top: 16px;
+  }
+
+  .portfolio-intro-copy {
+    margin-top: 40px;
+    padding-bottom: 28px;
+  }
+
+  .portfolio-intro-copy h1 {
+    font-size: clamp(2.2rem, 11.7vw, 3.1rem);
+  }
+
+  .portfolio-intro-copy p {
+    font-size: 0.94rem;
+  }
+}
+
+/*
+ * Em aparelhos muito estreitos continuamos priorizando largura útil.
+ * O conteúdo interno já é protegido por container queries, portanto não
+ * precisamos aplicar outra redução artificial.
+ */
+@media (max-width: 360px) {
+  .portfolio-intro-stage {
+    width: min(calc(100% - 12px), 350px);
+  }
+
+  .portfolio-intro-phone-shell {
+    width: min(91vw, 328px);
+  }
+
+  .portfolio-intro-copy {
+    margin-top: 36px;
+  }
+
+  .portfolio-intro-copy h1 {
+    font-size: clamp(2rem, 11.3vw, 2.65rem);
+  }
+
+  .portfolio-intro-copy p {
+    font-size: 0.9rem;
+  }
+}
+
+/*
+ * Landscape de celular: mantém a abertura navegável sem comprometer
+ * o aparelho nem criar uma segunda composição específica.
+ */
+@media (max-width: 720px) and (orientation: landscape) {
+  .portfolio-intro-phone-shell {
+    width: min(54vw, 330px);
+  }
+
+  .portfolio-intro-copy {
+    max-width: 560px;
+  }
+}
+
